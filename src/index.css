@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Figtree', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+
+  /* Brand palette — warm terracotta champagne */
+  --color-brand-50: #fdf6f1;
+  --color-brand-100: #f7e8da;
+  --color-brand-200: #ecd0b5;
+  --color-brand-300: #dcb08a;
+  --color-brand-400: #ca8d63;
+  --color-brand-500: #b8724a;
+  --color-brand-600: #9b5c38;
+  --color-brand-700: #7c4729;
+  --color-brand-800: #5c341e;
+  --color-brand-900: #3a2012;
+
+  /* Warm neutrals */
+  --color-warm-50: #fafaf8;
+  --color-warm-100: #f5f3ef;
+  --color-warm-200: #ece9e2;
+  --color-warm-300: #dddad1;
+  --color-warm-400: #c5c0b5;
+  --color-warm-500: #9e9890;
+  --color-warm-600: #706b62;
+  --color-warm-700: #4a4640;
+  --color-warm-800: #2b2824;
+  --color-warm-900: #1a1714;
+
+  /* Rose accent */
+  --color-rose-50: #fdf2f3;
+  --color-rose-100: #fae3e5;
+  --color-rose-200: #f3c7cb;
+  --color-rose-300: #e89fa5;
+  --color-rose-400: #d97080;
+  --color-rose-500: #c24858;
+
+  /* Sage natural */
+  --color-sage-50: #f3f7f3;
+  --color-sage-100: #e4ede2;
+  --color-sage-200: #c7d9c4;
+  --color-sage-300: #9fbf9a;
+  --color-sage-400: #72a46c;
+  --color-sage-500: #4d884a;
+
+  /* Semantic */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-500: #16a34a;
+  --color-success-700: #15803d;
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-500: #d97706;
+  --color-warning-700: #b45309;
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-500: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-500: #2563eb;
+  --color-info-700: #1d4ed8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: #fafaf8;
+  color: #1a1714;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Global focus ring */
+:focus-visible {
+  outline: 2px solid #b8724a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #dddad1;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5c0b5;
+}
+
+/* Smooth transitions */
+.transition-all { transition-property: all; }
+
+/* Input reset */
+input, textarea, select {
+  font-family: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
