@@ -26,7 +26,7 @@ type Screen =
 
 // ─── App Shell ────────────────────────────────────────────────────────────────
 export default function CustomerApp() {
-  const [screen, setScreen] = useState<Screen>('login');
+  const [screen, setScreen] = useState<Screen>('home');
   const [prevScreen, setPrevScreen] = useState<Screen>('home');
   const [products, setProducts] = useState<Product[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);

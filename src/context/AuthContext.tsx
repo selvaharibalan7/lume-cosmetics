@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { api } from '../api';
 
 interface User {
   id: number;
@@ -24,43 +23,36 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const initAuth = async () => {
-      const token = localStorage.getItem('auth_token');
-      if (token) {
-        try {
-          const userData = await api.auth.me();
-          if (userData) setUser(userData);
-        } catch (e) {
-          localStorage.removeItem('auth_token');
-        }
-      }
-      setLoading(false);
-    };
-
-    initAuth();
-
-    const handleUnauthorized = () => setUser(null);
-    window.addEventListener('auth-unauthorized', handleUnauthorized);
-    return () => window.removeEventListener('auth-unauthorized', handleUnauthorized);
+    // Automatically log in a dummy user for the static frontend!
+    setUser({
+      id: 1,
+      name: "Guest User",
+      email: "guest@lume.com",
+      created_at: new Date().toISOString()
+    });
+    setLoading(false);
   }, []);
 
   const login = async (data: any) => {
-    const result = await api.auth.login(data);
-    localStorage.setItem('auth_token', result.token);
-    setUser(result.user);
+    setUser({
+      id: 1,
+      name: "Guest User",
+      email: data.email || "guest@lume.com",
+      created_at: new Date().toISOString()
+    });
   };
 
   const register = async (data: any) => {
-    await api.auth.register(data);
+    setUser({
+      id: 1,
+      name: data.name || "Guest User",
+      email: data.email || "guest@lume.com",
+      created_at: new Date().toISOString()
+    });
   };
 
   const logout = async () => {
-    try {
-      await api.auth.logout();
-    } finally {
-      localStorage.removeItem('auth_token');
-      setUser(null);
-    }
+    setUser(null);
   };
 
   return (
